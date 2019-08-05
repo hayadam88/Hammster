@@ -1,4 +1,13 @@
 footer {
     margin-top: 80px;
-    background-color: blue
+    background-color: blue;
+    position: fixed;
+    bottom: 0px;
+    height: 100px;
+    width: stretch;
+}
+
+.footer-text {
+    padding: 40px;
+    text-align: center;
 }
