@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import About from '../About/About';
 import Bars from '../Bars/Bars';
@@ -60,7 +60,7 @@ class App extends Component {
           </Switch>
           
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
   )}
 }

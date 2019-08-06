@@ -15,7 +15,7 @@ class SpecificBar extends Component {
                     <h1>
                     Enjoy Hamm's at {this.props.reduxStore.barDetails.name}
                     </h1>
-                    <img src = {this.props.reduxStore.barDetails.image_url} width='400px' height='400px'></img>
+                    <img src = {this.props.reduxStore.barDetails.image_url} width='400px' height='400px' alt="Bar"></img>
                     <p>Location: {this.props.reduxStore.barDetails.address}</p>
                     <p>Phone: {this.props.reduxStore.barDetails.phone}</p>
                     <p>Hamm's Information: {this.props.reduxStore.barDetails.notes}</p>

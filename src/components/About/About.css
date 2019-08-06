@@ -1,3 +1,7 @@
 img {
     float: right;
 }
+
+textarea {
+    margin-left: 20px;
+}
