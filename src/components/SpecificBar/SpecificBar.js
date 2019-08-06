@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './SpecificBar.css'
+import MessageFeed from '../MessageFeed/MessageFeed'
 
 
 
@@ -20,6 +21,7 @@ class SpecificBar extends Component {
                     <p>Hamm's Information: {this.props.reduxStore.barDetails.notes}</p>
                     
                 </div>
+                <MessageFeed />
             </>
          )}
    
