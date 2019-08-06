@@ -22,6 +22,13 @@ class Bars extends Component {
                     Click a bar's name below to learn more about it!
                     </p>
                 </div>
+                <ul>
+                {this.props.reduxStore.barListReducer.map(bar => {
+                return <li key={bar.id}>
+                    {bar.name}
+                </li>   
+                })}
+            </ul>
             </>
          )}
    

@@ -10,7 +10,7 @@ function* fetchBars(action) {
         });
     } catch (error) {
         console.log('Error getting bars', error);
-        alert(`Couldn't get your movie data`);
+        alert(`Couldn't get your bar data`);
     }
 }
 
