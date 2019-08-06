@@ -12,7 +12,11 @@ class AddBar extends Component {
                 <div>
                     <h3>
                     Add a bar!
-                    </h3>  
+                    </h3>
+                    <p>
+                    Enter a bar's information into the fields below to have it submitted
+                    to the app, pending approval.
+                    </p>
                 </div>
             </>
          )}

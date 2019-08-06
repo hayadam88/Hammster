@@ -12,7 +12,10 @@ class Bars extends Component {
                 <div>
                     <h3 id="welcome">
                     Bars
-                    </h3>  
+                    </h3>
+                    <p>
+                    Click a bar's name below to learn more about it!
+                    </p>
                 </div>
             </>
          )}
