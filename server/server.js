@@ -21,7 +21,7 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* Routes */
+/* Routes------------------------------------------------------- */
 app.use('/api/user', userRouter);
 
 // GET all approved bars route
@@ -29,6 +29,18 @@ app.get('/bars', (req, res) => {
   pool.query(`SELECT * FROM "bars" WHERE "approved" = true;`)
     .then((result) => {
       res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('Error making bars get request', error);
+      res.sendStatus(500);
+    });
+});
+
+//GET details about a specific bar
+app.get('/bars/details/:id', (req, res) => {
+  pool.query(`SELECT * FROM "bars" WHERE "id"=$1;`, [req.params.id])
+    .then((result) => {
+      res.send(result.rows[0]);
     })
     .catch(error => {
       console.log('Error making bars get request', error);

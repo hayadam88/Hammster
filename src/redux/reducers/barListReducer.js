@@ -8,6 +8,6 @@ const barListReducer = (state = [], action) => {
     }
 }
 
-export default barListReducer
+export default barListReducer;
 
 
