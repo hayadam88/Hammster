@@ -1,11 +1,10 @@
-
 const express = require('express');
 require('dotenv').config();
 
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
-
+const pool = require('./modules/pool');
 const passport = require('./strategies/user.strategy');
 
 // Route includes
@@ -24,6 +23,19 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+
+// GET all approved bars route
+app.get('/bars', (req, res) => {
+  pool.query(`SELECT * FROM "bars" WHERE "approved" = true;`)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('Error making bars get request', error);
+      res.sendStatus(500);
+    });
+});
+
 
 // Serve static files
 app.use(express.static('build'));

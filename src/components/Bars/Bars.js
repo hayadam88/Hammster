@@ -5,10 +5,15 @@ import { connect } from 'react-redux';
 
 class Bars extends Component {
 
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'FETCH_BARS'
+        });
+    }
 
     render() {
         return (
-             <>
+            <>
                 <div>
                     <h3 id="welcome">
                     Bars
