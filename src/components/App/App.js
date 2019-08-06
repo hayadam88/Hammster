@@ -9,10 +9,10 @@ import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import About from '../About/About';
 import Bars from '../Bars/Bars';
 import AddBar from '../AddBar/AddBar';
+import SpecificBar from '../SpecificBar/SpecificBar';
 
 import './App.css';
 
@@ -49,6 +49,11 @@ class App extends Component {
               exact
               path="/addbar"
               component={AddBar}
+            />
+            <ProtectedRoute
+              exact
+              path="/specificbar"
+              component={SpecificBar}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
