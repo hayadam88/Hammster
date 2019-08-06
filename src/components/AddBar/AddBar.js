@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 
 
 
-class Bars extends Component {
+class AddBar extends Component {
 
 
     render() {
         return (
              <>
                 <div>
-                    <h3 id="welcome">
-                    Bars
+                    <h3>
+                    Add a bar!
                     </h3>  
                 </div>
             </>
@@ -30,4 +30,4 @@ const mapStateToProps = (reduxStore) => ({
 });
 
 
-export default connect(mapStateToProps)(Bars);
+export default connect(mapStateToProps)(AddBar);

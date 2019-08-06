@@ -12,7 +12,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import About from '../About/About';
 import Bars from '../Bars/Bars';
-import InfoPage from '../InfoPage/InfoPage';
+import AddBar from '../AddBar/AddBar';
 
 import './App.css';
 
@@ -46,6 +46,11 @@ class App extends Component {
               exact
               path="/bars"
               component={Bars}
+            />
+            <ProtectedRoute
+              exact
+              path="/addbar"
+              component={AddBar}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

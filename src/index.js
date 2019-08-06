@@ -12,14 +12,12 @@ import App from './components/App/App';
 
 const sagaMiddleware = createSagaMiddleware();
 
-// this line creates an array of all of redux middleware you want to use
-// we don't want a whole ton of console logs in our production code
-// logger will only be added to your project if your in development mode
+// this line creates an array of all of redux middleware we use
 const middlewareList = process.env.NODE_ENV === 'development' ?
   [sagaMiddleware, logger] :
   [sagaMiddleware];
 
-const store = createStore(
+const reduxStore = createStore(
   // tells the saga middleware to use the rootReducer
   // rootSaga contains all of our other reducers
   rootReducer,
@@ -32,7 +30,7 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={reduxStore}>
     <App />
   </Provider>,
   document.getElementById('react-root'),
