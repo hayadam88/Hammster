@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Bars.css';
 
 
 
@@ -9,6 +10,15 @@ class Bars extends Component {
         this.props.dispatch({
             type: 'FETCH_BARS'
         });
+    }
+
+    handleClick = (bar) => {
+        console.log(bar);
+        this.props.history.push('/details');
+        this.props.dispatch({
+            type: 'FETCH_BAR_DETAILS',
+            payload: bar
+        })
     }
 
     render() {
@@ -24,7 +34,7 @@ class Bars extends Component {
                 </div>
                 <ul>
                     {this.props.reduxStore.barListReducer.map(bar => {
-                    return <li key={bar.id}>
+                    return <li key={bar.id} onClick={() => this.handleClick(bar)}>
                     {bar.name}
                     </li>   
                     })}
