@@ -51,8 +51,8 @@ app.get('/bars/details', (req, res) => {
 });
 
 //GET messages about a specific bar
-app.get('/messages', (req, res) => {
-  pool.query(`SELECT * FROM "messages" WHERE "id"=$1;`, [req.params])
+app.get('/messages/:bar_id', (req, res) => {
+  pool.query(`SELECT * FROM "messages" WHERE "bar_id"=$1;`, [req.params.id])
     .then((result) => {
       res.send(result.rows[0]);
     })

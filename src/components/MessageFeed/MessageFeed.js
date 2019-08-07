@@ -6,22 +6,22 @@ import './MessageFeed.css';
 
 class MessageFeed extends Component {
 
-    // componentDidMount() {
-    //     console.log('Message should be this------>', this.props.reduxStore.barDetails.id)
-    //     this.props.dispatch({
-    //         type: 'FETCH_SPECIFIC_MESSAGES',
-    //         payload: this.props.reduxStore.barDetails.id
-    //     });
-    // }
 
-
+    componentDidMount = () => {
+            this.props.dispatch({
+                type: 'FETCH_BAR_MESSAGES',
+                payload: this.props.bar_id,
+            })
+        }
+    
+      
     render() {
         return (
              <>
                 <div className="details">
                 
                     <h3>Talk about your experience at {this.props.reduxStore.barDetails.name}</h3>
-                    <p>{JSON.stringify(this.props.reduxStore.barDetails.id)}</p>
+                    {JSON.stringify(this.props.bar_id)}
                     <textarea rows="4" cols="80"></textarea>
                     <br/>
                     <button className="messageSubmit">Submit</button>
@@ -35,10 +35,6 @@ class MessageFeed extends Component {
 
 
 }
-
-
-
-
 
 const mapStateToProps = (reduxStore) => ({
   reduxStore

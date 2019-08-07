@@ -5,12 +5,7 @@ import './Bars.css';
 
 
 class Bars extends Component {
-
-    
-
-    
-    
-    
+ 
     componentDidMount() {
         this.props.dispatch({
             type: 'FETCH_BARS'
