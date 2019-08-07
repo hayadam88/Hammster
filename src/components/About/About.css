@@ -2,6 +2,14 @@ img {
     float: right;
 }
 
+ul {
+    list-style-type: none;
+}
+
+.messageSubmit {
+    margin-left: 20px;
+}
+
 textarea {
     margin-left: 20px;
 }

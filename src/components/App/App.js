@@ -52,7 +52,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/specificbar"
+              path="/specificbar/:id"
               component={SpecificBar}
             />
             {/* If none of the other routes matched, we will show a 404. */}

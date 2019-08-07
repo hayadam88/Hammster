@@ -37,13 +37,27 @@ app.get('/bars', (req, res) => {
 });
 
 //GET details about a specific bar
-app.get('/bars/details/:id', (req, res) => {
-  pool.query(`SELECT * FROM "bars" WHERE "id"=$1;`, [req.params.id])
+app.get('/bars/details', (req, res) => {
+  console.log(req.query.id);
+
+  pool.query(`SELECT * FROM "bars" WHERE "id"=$1;`, [req.query.id])
     .then((result) => {
       res.send(result.rows[0]);
     })
     .catch(error => {
       console.log('Error making bars get request', error);
+      res.sendStatus(500);
+    });
+});
+
+//GET messages about a specific bar
+app.get('/messages', (req, res) => {
+  pool.query(`SELECT * FROM "messages" WHERE "id"=$1;`, [req.params])
+    .then((result) => {
+      res.send(result.rows[0]);
+    })
+    .catch(error => {
+      console.log('Error making bar specific messages GET request', error);
       res.sendStatus(500);
     });
 });

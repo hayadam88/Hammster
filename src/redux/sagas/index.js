@@ -4,6 +4,7 @@ import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import fetchBars from './fetchBars';
 import fetchBarDetails from './fetchBarDetails';
+import fetchSpecificMessages from './fetchSpecificMessages';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -15,6 +16,7 @@ import fetchBarDetails from './fetchBarDetails';
 export default function* rootSaga() {
   yield takeEvery('FETCH_BARS', fetchBars);
   yield takeEvery('FETCH_BAR_DETAILS', fetchBarDetails);
+  // yield takeEvery('FETCH_SPECIFIC_MESSAGES', fetchSpecificMessages);
   yield all([
     loginSaga(),
     registrationSaga(),

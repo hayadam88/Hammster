@@ -6,6 +6,11 @@ import './Bars.css';
 
 class Bars extends Component {
 
+    
+
+    
+    
+    
     componentDidMount() {
         this.props.dispatch({
             type: 'FETCH_BARS'
@@ -13,12 +18,7 @@ class Bars extends Component {
     }
 
     handleClick = (bar) => {
-        console.log(bar);
-        this.props.history.push('/specificbar');
-        this.props.dispatch({
-            type: 'FETCH_BAR_DETAILS',
-            payload: bar
-        })
+        this.props.history.push(`/specificbar/${bar.id}`);
     }
 
     render() {

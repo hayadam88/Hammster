@@ -6,12 +6,16 @@ import MessageFeed from '../MessageFeed/MessageFeed'
 
 
 class SpecificBar extends Component {
-
+    componentDidMount = () => {
+        this.props.dispatch({type: 'FETCH_BAR_DETAILS', payload: this.props.match.params.id})
+    }
 
     render() {
+        console.log(this.props.match.params.id)
         return (
              <>
-                <div class="details">
+                <div>
+                    <button onClick={this.handleClick} >Go back to Bars List</button>
                     <h1>
                     Enjoy Hamm's at {this.props.reduxStore.barDetails.name}
                     </h1>
