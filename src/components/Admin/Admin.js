@@ -15,6 +15,10 @@ class Admin extends Component {
         })
     }
 
+    handleApprove = (event) => {
+        console.log('Clicked approve');
+    }
+
 
     render() {
         return (
@@ -22,26 +26,25 @@ class Admin extends Component {
                 <div>
                     <h3>
                     This is the admin page
-                    <br/>
-                    BAR LIST REDUCER:
-                    <br/>
-                    {JSON.stringify(this.props.reduxStore.unapprovedBars)}
                     </h3>
-                    <br/>
-                    <br/>
-                    <h3>MESSAGE LIST REDUCER:</h3>
-                    <br/>
-                    {JSON.stringify(this.props.reduxStore.setAllMessages)}
-
-
                 </div>
-                {/* <ul>
-                    {this.props.reduxStore.barListReducer.map(bar => {
-                    return <li key={bar.id} onClick={() => this.handleClick(bar)}>
-                    {bar.name}
+                <ul>
+                    {this.props.reduxStore.unapprovedBars.map(bar => {
+                    return <li key={bar.id}>
+                    {bar.name} <button onClick={this.handleApprove}>Approve</button><button>Deny</button>
                     </li>   
                     })}
-                </ul> */}
+                </ul>
+                <br/>
+                <ul>
+                    {this.props.reduxStore.setAllMessages.map(message => {
+                    return <li key={message.message}>
+                    <p>Name:{message.users_name} Message: {message.message}</p>
+                    <button>Edit</button><button>Delete</button>
+                    
+                    </li>   
+                    })}
+                </ul>
             </>
          )}// End render
    

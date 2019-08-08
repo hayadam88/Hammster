@@ -25,6 +25,11 @@ const Nav = (props) => (
           </Link>
         </>
       )}
+      {props.user.id === 2 && (
+        <Link className="nav-link" to="/admin">
+          Admin
+        </Link>
+      )}
       <LogOutButton className="nav-link"/>
     </div>
   </div>
