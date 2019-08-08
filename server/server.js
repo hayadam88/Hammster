@@ -61,6 +61,27 @@ app.get('/messages/:bar_id', (req, res) => {
     });
 });
 
+//POST messages from Message Feed
+app.post('/messages', (req, res) => {
+  const sqlText = `INSERT INTO "messages" ("bar_id", "user_id", "date", "message")
+  VALUES ($1, $2, $3, $4);`
+  // Grab
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  let yyyy = today.getFullYear();
+
+  today = mm + '/' + dd + '/' + yyyy;
+  const values = [req.body.bar_id, req.body.user_id, today, req.body.message];
+  console.log(req.body.message)
+  pool.query(sqlText, values)
+  .then((results) => {
+    res.sendStatus(201);
+  }).catch((error) => {
+    console.log('Error with post', error);
+    res.sendStatus(500);
+  });
+});
 
 // Serve static files
 app.use(express.static('build'));

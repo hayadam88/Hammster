@@ -30,7 +30,11 @@ class MessageFeed extends Component {
 
     handleSubmit = (event) => {
         console.log('clicked submit');
-        
+        this.props.dispatch({type: 'ADD_MESSAGE', payload: this.state})
+        this.setState({
+            ...this.state,
+            message: '',
+        })
     }
       
     render() {
