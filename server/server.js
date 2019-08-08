@@ -24,7 +24,7 @@ app.use(passport.session());
 /* Routes------------------------------------------------------- */
 app.use('/api/user', userRouter);
 
-// GET all approved bars route
+// GET all approved bars for Bars page
 app.get('/bars', (req, res) => {
   pool.query(`SELECT * FROM "bars" WHERE "approved" = true;`)
     .then((result) => {
@@ -36,7 +36,7 @@ app.get('/bars', (req, res) => {
     });
 });
 
-// GET all approved bars route
+// GET all unapproved bars for Admin page
 app.get('/bars/unapproved', (req, res) => {
   pool.query(`SELECT * FROM "bars" WHERE "approved" = false;`)
     .then((result) => {
@@ -48,7 +48,7 @@ app.get('/bars/unapproved', (req, res) => {
     });
 });
 
-//GET details about a specific bar
+//GET details about a specific bar for SpecificBar page
 app.get('/bars/details', (req, res) => {
   console.log(req.query.id);
   pool.query(`SELECT * FROM "bars" WHERE "id"=$1;`, [req.query.id])
@@ -61,7 +61,7 @@ app.get('/bars/details', (req, res) => {
     });
 });
 
-//GET messages about a specific bar
+//GET messages about a specific bar for MessageFeed page
 app.get('/messages/:bar_id', (req, res) => {
   pool.query(`SELECT "user"."username" as "users_name", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" WHERE "bar_id"=$1 ORDER BY "users_name";`, [req.params.bar_id])
     .then((result) => {
@@ -72,6 +72,19 @@ app.get('/messages/:bar_id', (req, res) => {
       res.sendStatus(500);
     });
 });
+
+//GET all messages for the Admin page
+app.get('/messages', (req, res) => {
+  pool.query(`SELECT "user"."username" as "users_name", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" ORDER BY "users_name";`)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('Error getting all messages for Admin GET request', error);
+      res.sendStatus(500);
+    });
+});
+
 
 //POST messages from Message Feed
 app.post('/messages', (req, res) => {

@@ -22,7 +22,18 @@ class Admin extends Component {
                 <div>
                     <h3>
                     This is the admin page
+                    <br/>
+                    BAR LIST REDUCER:
+                    <br/>
+                    {JSON.stringify(this.props.reduxStore.unapprovedBars)}
                     </h3>
+                    <br/>
+                    <br/>
+                    <h3>MESSAGE LIST REDUCER:</h3>
+                    <br/>
+                    {JSON.stringify(this.props.reduxStore.setAllMessages)}
+
+
                 </div>
                 {/* <ul>
                     {this.props.reduxStore.barListReducer.map(bar => {

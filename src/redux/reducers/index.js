@@ -6,6 +6,7 @@ import barListReducer from './barListReducer';
 import barDetails from './barDetails';
 import setBarMessages from './setBarMessages';
 import unapprovedBars from './unapprovedBars';
+import setAllMessages from './setAllMessages';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   barDetails, // Stores a specific bar's details
   setBarMessages, //
   unapprovedBars,
+  setAllMessages,
 });
 
 export default rootReducer;
