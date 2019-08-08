@@ -43,11 +43,13 @@ class MessageFeed extends Component {
                 <div>
                     
                     <h3>Talk about your experience at {this.props.bar_name}</h3>
-                    <p>USER ID: {JSON.stringify(this.props.user_id)}</p>
-                    <p>STATE: {JSON.stringify(this.state)}</p>
                     <textarea rows="4" cols="80" onChange={this.handleChange} value={this.state.message}></textarea>
                     <br/>
                     <button className="messageSubmit" onClick={this.handleSubmit}>Submit</button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <br/>
                     <br/>
                     <br/>

@@ -10,7 +10,7 @@ function* addMessage(action) {
             payload: action.payload.bar_id
         });
     } catch (error) {
-        console.log('Error getting bar messages', error);
+        console.log('Error with addMessage saga', error);
     }
 }
 
