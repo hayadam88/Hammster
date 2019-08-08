@@ -83,6 +83,21 @@ app.post('/messages', (req, res) => {
   });
 });
 
+//POST a new bar
+app.post('/bars', (req, res) => {
+  const sqlText = `INSERT INTO "bars" ("name", "address", "notes", "phone", "image_url", "approved")
+  VALUES ($1, $2, $3, $4, $5, $6);`
+  const values = [req.body.bar_name, req.body.street_address, req.body.notes, req.body.phone, 'https://i.ibb.co/KN454FY/hammsontap.jpg', req.body.approved];
+  console.log(req.body.message)
+  pool.query(sqlText, values)
+  .then((results) => {
+    res.sendStatus(201);
+  }).catch((error) => {
+    console.log('Error with post', error);
+    res.sendStatus(500);
+  });
+});
+
 // Serve static files
 app.use(express.static('build'));
 
