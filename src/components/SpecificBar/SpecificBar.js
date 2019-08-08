@@ -31,7 +31,7 @@ class SpecificBar extends Component {
                     <p>Phone: {this.props.reduxStore.barDetails.phone}</p>
                     <p>Hamm's Information: {this.props.reduxStore.barDetails.notes}</p>    
                 </div>
-                   <MessageFeed bar_id={this.props.match.params.id} bar_name={this.props.reduxStore.barDetails.name}/>
+                   <MessageFeed bar_id={this.props.match.params.id} bar_name={this.props.reduxStore.barDetails.name} user_id={this.props.reduxStore.user.id}/>
                     
             </>      
          )}

@@ -39,7 +39,6 @@ app.get('/bars', (req, res) => {
 //GET details about a specific bar
 app.get('/bars/details', (req, res) => {
   console.log(req.query.id);
-
   pool.query(`SELECT * FROM "bars" WHERE "id"=$1;`, [req.query.id])
     .then((result) => {
       res.send(result.rows[0]);
@@ -54,7 +53,7 @@ app.get('/bars/details', (req, res) => {
 app.get('/messages/:bar_id', (req, res) => {
   pool.query(`SELECT "user"."username" as "users_name", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" WHERE "bar_id"=$1 ORDER BY "users_name";`, [req.params.bar_id])
     .then((result) => {
-      res.send(result.rows[0]);
+      res.send(result.rows);
     })
     .catch(error => {
       console.log('Error making bar specific messages GET request', error);
