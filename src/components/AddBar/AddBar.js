@@ -1,37 +1,78 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
-
 class AddBar extends Component {
+
+    state = {
+        
+            bar_name: '',
+            street_address: '',
+            city: '',
+            phone: '',
+            notes: '',
+            approved: false,
+
+    }
+
+    handleChangeFor = (propertyName, event) => {
+        this.setState({
+            
+                ...this.state,
+                [propertyName]: event.target.value
+            
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(`Adding bar`, this.state);
+        this.props.dispatch({
+            type: `POST_BAR`,
+            payload: this.state
+        })
+        this.props.history.push('/checkout');
+        this.calcOrderTotal();
+    } // handle submit
 
 
     render() {
         return (
-             <>
-                <div>
-                    <h3>
-                    Add a bar!
-                    </h3>
-                    <p>
-                    Enter a bar's information into the fields below to have it submitted
-                    to the app, pending approval.
-                    </p>
-                </div>
+            <>
+            <h3>{JSON.stringify(this.state)}</h3>
+            <form onSubmit={this.handleSubmit}>
+
+                <input required placeholder="Bar Name"
+                    value={this.state.bar_name}
+                    onChange={(event) => this.handleChangeFor('bar_name', event)} />
+
+                <input required placeholder="Address"
+                    value={this.state.street_address}
+                    onChange={(event) => this.handleChangeFor('street_address', event)} />
+
+                <input required placeholder="City"
+                    value={this.state.city}
+                    onChange={(event) => this.handleChangeFor('city', event)} />
+
+                <input required placeholder="Phone"
+                    value={this.state.phone}
+                    onChange={(event) => this.handleChangeFor('phone', event)} />
+
+                <textarea required placeholder="Hamm's Information"
+                    value={this.state.notes}
+                    onChange={(event) => this.handleChangeFor('notes', event)} />
+                <br />
+                <button type="submit">
+                    Submit Bar
+                    </button>
+
+            </form>
             </>
-         )}
-   
-
-
-}
-
-
-
-
+        );// end return
+    }// end render
+}// end class
 
 const mapStateToProps = (reduxStore) => ({
-  reduxStore
-});
-
+    reduxStore
+})
 
 export default connect(mapStateToProps)(AddBar);
