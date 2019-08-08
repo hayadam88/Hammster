@@ -44,7 +44,7 @@ class AddBar extends Component {
     render() {
         return (
             <>
-            <h3>{JSON.stringify(this.state)}</h3>
+            <p>Enter a bar's information below to have it added to Hammster--pending approval.</p>
             <form onSubmit={this.handleSubmit}>
 
                 <input required placeholder="Bar Name"

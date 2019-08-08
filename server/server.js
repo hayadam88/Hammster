@@ -36,6 +36,18 @@ app.get('/bars', (req, res) => {
     });
 });
 
+// GET all approved bars route
+app.get('/bars/unapproved', (req, res) => {
+  pool.query(`SELECT * FROM "bars" WHERE "approved" = false;`)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('Error making unapproved bars get request', error);
+      res.sendStatus(500);
+    });
+});
+
 //GET details about a specific bar
 app.get('/bars/details', (req, res) => {
   console.log(req.query.id);
