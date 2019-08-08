@@ -123,13 +123,13 @@ app.post('/bars', (req, res) => {
   });
 });
 
-//DELETE a suggested bar
-app.delete('bars/:bar_id', (req, res) => {
-  pool.query('DELETE FROM "bars" WHERE id=$1', [req.params.bar_id])
+//DELETE a suggested bar on Admin page
+app.delete('/bars/:bar_id', (req, res) => {
+  pool.query('DELETE FROM "bars" WHERE "id"=$1;', [req.params.bar_id])
   .then((result) => {
     res.sendStatus(200);
   }).catch((error) => {
-    console.log('Error DELETE /api/order', error);
+    console.log('Error DELETING bar', error);
     res.sendStatus(500);
   })
 });

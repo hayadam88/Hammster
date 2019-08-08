@@ -15,10 +15,17 @@ class Admin extends Component {
         })
     }
 
-    handleApprove = (event) => {
-        console.log('Clicked approve');
+    handleApprove = (bar) => {
+        console.log(bar);
     }
 
+    handleDeny = (bar) => {
+        console.log(bar)
+        this.props.dispatch({
+            type: 'DENY_BAR',
+            payload: bar.id
+        })
+    }
 
     render() {
         return (
@@ -31,7 +38,7 @@ class Admin extends Component {
                 <ul>
                     {this.props.reduxStore.unapprovedBars.map(bar => {
                     return <li key={bar.id}>
-                    {bar.name} <button onClick={this.handleApprove}>Approve</button><button>Deny</button>
+                    {bar.name} <button onClick={() => this.handleApprove(bar)}>Approve</button><button onClick={() => this.handleDeny(bar)}>Deny</button>
                     </li>   
                     })}
                 </ul>
