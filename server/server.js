@@ -52,7 +52,7 @@ app.get('/bars/details', (req, res) => {
 
 //GET messages about a specific bar
 app.get('/messages/:bar_id', (req, res) => {
-  pool.query(`SELECT * FROM "messages" WHERE "bar_id"=$1;`, [req.params.bar_id])
+  pool.query(`SELECT "user"."username" as "users_name", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" WHERE "bar_id"=$1 ORDER BY "users_name";`, [req.params.bar_id])
     .then((result) => {
       res.send(result.rows[0]);
     })

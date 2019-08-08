@@ -23,16 +23,16 @@ class AddBar extends Component {
         })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(`Adding bar`, this.state);
-        this.props.dispatch({
-            type: `POST_BAR`,
-            payload: this.state
-        })
-        this.props.history.push('/checkout');
-        this.calcOrderTotal();
-    } // handle submit
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     console.log(`Adding bar`, this.state);
+    //     this.props.dispatch({
+    //         type: `POST_BAR`,
+    //         payload: this.state
+    //     })
+    //     this.props.history.push('/checkout');
+    //     this.calcOrderTotal();
+    // } // handle submit
 
 
     render() {

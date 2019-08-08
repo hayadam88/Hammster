@@ -21,7 +21,6 @@ class MessageFeed extends Component {
                 <div className="details">
                 
                     <h3>Talk about your experience at {this.props.bar_name}</h3>
-                    {JSON.stringify(this.props.bar_id)}
                     <textarea rows="4" cols="80"></textarea>
                     <br/>
                     <button className="messageSubmit">Submit</button>
