@@ -7,19 +7,25 @@ import { connect } from 'react-redux';
 class Admin extends Component {
  
     componentDidMount() {
+        // Get all bars from the database that are unapproved
         this.props.dispatch({
             type: 'FETCH_UNAPPROVED_BARS'
         });
+        // Get all messages in the database
         this.props.dispatch({
             type: 'FETCH_ALL_MESSAGES'
         })
     }
 
-    handleApprove = (bar) => {
+    handleBarApprove = (bar) => {
         console.log(bar);
+        this.props.dispatch({
+            type: 'APPROVE_BAR',
+            payload: bar.id
+        })
     }
 
-    handleDeny = (bar) => {
+    handleBarDeny = (bar) => {
         console.log(bar)
         this.props.dispatch({
             type: 'DENY_BAR',
@@ -38,7 +44,7 @@ class Admin extends Component {
                 <ul>
                     {this.props.reduxStore.unapprovedBars.map(bar => {
                     return <li key={bar.id}>
-                    {bar.name} <button onClick={() => this.handleApprove(bar)}>Approve</button><button onClick={() => this.handleDeny(bar)}>Deny</button>
+                    {bar.name} <button onClick={() => this.handleBarApprove(bar)}>Approve</button><button onClick={() => this.handleBarDeny(bar)}>Deny</button>
                     </li>   
                     })}
                 </ul>

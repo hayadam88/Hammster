@@ -134,6 +134,20 @@ app.delete('/bars/:bar_id', (req, res) => {
   })
 });
 
+//PUT: approve a bar on Admin page
+app.put('/bars/:bar_id', (req, res) => {
+  console.log('Updating bars')
+  const sqlText = `UPDATE "bars" SET "approved" = $1;`;
+  values = [true]
+  pool.query(sqlText, values)
+    .then((response) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+    })
+})
+
 // Serve static files
 app.use(express.static('build'));
 
