@@ -26,10 +26,18 @@ class Admin extends Component {
     }
 
     handleBarDeny = (bar) => {
-        console.log(bar)
+        console.log(bar);
         this.props.dispatch({
             type: 'DENY_BAR',
             payload: bar.id
+        })
+    }
+
+    handleMessageDelete = (message) => {
+        console.log(message);
+        this.props.dispatch({
+            type: 'DELETE_MESSAGE',
+            payload: message.message
         })
     }
 
@@ -53,7 +61,7 @@ class Admin extends Component {
                     {this.props.reduxStore.setAllMessages.map(message => {
                     return <li key={message.message}>
                     <p>Name:{message.users_name} Message: {message.message}</p>
-                    <button>Edit</button><button>Delete</button>
+                    <button>Edit</button><button onClick={() => this.handleMessageDelete(message)}>Delete</button>
                     
                     </li>   
                     })}

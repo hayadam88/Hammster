@@ -90,7 +90,7 @@ app.get('/messages', (req, res) => {
 app.post('/messages', (req, res) => {
   const sqlText = `INSERT INTO "messages" ("bar_id", "user_id", "date", "message")
   VALUES ($1, $2, $3, $4);`
-  // Grab
+  
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!

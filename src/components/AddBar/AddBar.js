@@ -44,7 +44,9 @@ class AddBar extends Component {
     render() {
         return (
             <>
-            <p>Enter a bar's information below to have it added to Hammster--pending approval.</p>
+            <p>The continued survival and growth of Hammster depends on users like you. Found a bar that
+                serves Hamm's on tap, but it's not on the app? Submit its information below, and if it looks good, we'll
+                add it to the app!</p>
             <form onSubmit={this.handleSubmit}>
 
                 <input required placeholder="Bar Name"
