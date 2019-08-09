@@ -45,18 +45,38 @@ class Admin extends Component {
         return (
             <>
                 <div>
-                    <h3>
-                    This is the admin page
-                    </h3>
+                    <h1>
+                    Administration Page
+                    </h1>
                 </div>
-                <ul>
+                 <h1>Suggested Bars</h1>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Bar Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>City</th>
+                        <th>Notes</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     {this.props.reduxStore.unapprovedBars.map(bar => {
-                    return <li key={bar.id}>
-                    {bar.name} <button onClick={() => this.handleBarApprove(bar)}>Approve</button><button onClick={() => this.handleBarDeny(bar)}>Deny</button>
-                    </li>   
-                    })}
-                </ul>
+                    return <tr key={bar.id}>
+                        <td>{bar.name}</td>
+                        <td>{bar.address}</td>
+                        <td>{bar.phone}</td>
+                        <td>{bar.city}</td>
+                        <td>{bar.notes}</td>
+                        <td><button onClick={() => this.handleBarApprove(bar)}>Approve</button></td>
+                        <td><button onClick={() => this.handleBarDeny(bar)}>Deny</button></td>
+                    </tr>
+                    })
+                    }
+                    </tbody>           
+                </table>
                 <br/>
+                <h1>Messages Feed</h1>
                 <table>
                     <tbody>
                     <tr>
@@ -68,27 +88,20 @@ class Admin extends Component {
                     </tr>
                     {this.props.reduxStore.setAllMessages.map(message => {
                     return <tr key={message.message}>
-                    <td>{message.users_name}</td>
-                    <td>{message.name}</td>
-                    <td>{message.message}</td>
-                    <td><button>Edit</button></td>
-                    <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
+                        <td>{message.users_name}</td>
+                        <td>{message.name}</td>
+                        <td>{message.message}</td>
+                        <td><button>Edit</button></td>
+                        <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
                     </tr>
                     })
                     }
-                    </tbody>
-                     
-                    
+                    </tbody>                    
                 </table>
             </>
          )}// End render
    
-
-
 }
-
-
-
 
 
 const mapStateToProps = (reduxStore) => ({
