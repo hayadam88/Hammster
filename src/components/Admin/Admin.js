@@ -57,15 +57,29 @@ class Admin extends Component {
                     })}
                 </ul>
                 <br/>
-                <ul>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Bar Name</th>
+                        <th>Message</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     {this.props.reduxStore.setAllMessages.map(message => {
-                    return <li key={message.message}>
-                    <p>Name:{message.users_name} Message: {message.message}</p>
-                    <button>Edit</button><button onClick={() => this.handleMessageDelete(message)}>Delete</button>
+                    return <tr key={message.message}>
+                    <td>{message.users_name}</td>
+                    <td>{message.name}</td>
+                    <td>{message.message}</td>
+                    <td><button>Edit</button></td>
+                    <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
+                    </tr>
+                    })
+                    }
+                    </tbody>
+                     
                     
-                    </li>   
-                    })}
-                </ul>
+                </table>
             </>
          )}// End render
    
