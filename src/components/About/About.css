@@ -2,6 +2,13 @@ img {
     float: right;
 }
 
+body {
+background-image: url(https://i.ibb.co/wgmd69f/obg.jpg);
+background-size: 100%;
+
+}
+
+
 ul {
     list-style-type: none;
 }

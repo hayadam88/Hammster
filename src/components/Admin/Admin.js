@@ -17,6 +17,7 @@ class Admin extends Component {
         })
     }
 
+
     handleBarApprove = (bar) => {
         console.log(bar);
         this.props.dispatch({
@@ -50,7 +51,7 @@ class Admin extends Component {
                     </h1>
                 </div>
                  <h1>Suggested Bars</h1>
-                <table>
+                <table align="center">
                     <tbody>
                     <tr>
                         <th>Bar Name</th>
@@ -77,13 +78,12 @@ class Admin extends Component {
                 </table>
                 <br/>
                 <h1>Messages Feed</h1>
-                <table>
+                <table align="center">
                     <tbody>
                     <tr>
                         <th>User Name</th>
                         <th>Bar Name</th>
                         <th>Message</th>
-                        <th></th>
                         <th></th>
                     </tr>
                     {this.props.reduxStore.setAllMessages.map(message => {
@@ -91,7 +91,6 @@ class Admin extends Component {
                         <td>{message.users_name}</td>
                         <td>{message.name}</td>
                         <td>{message.message}</td>
-                        <td><button>Edit</button></td>
                         <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
                     </tr>
                     })
