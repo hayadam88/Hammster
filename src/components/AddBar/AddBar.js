@@ -7,7 +7,6 @@ class AddBar extends Component {
         
             bar_name: '',
             street_address: '',
-            city: '',
             phone: '',
             notes: '',
             approved: false,
@@ -33,7 +32,6 @@ class AddBar extends Component {
         this.setState({
             bar_name: '',
             street_address: '',
-            city: '',
             phone: '',
             notes: '',
             approved: false,
@@ -53,13 +51,9 @@ class AddBar extends Component {
                     value={this.state.bar_name}
                     onChange={(event) => this.handleChangeFor('bar_name', event)} />
 
-                <input required placeholder="Address"
+                <input required placeholder="Address, City"
                     value={this.state.street_address}
                     onChange={(event) => this.handleChangeFor('street_address', event)} />
-
-                <input required placeholder="City"
-                    value={this.state.city}
-                    onChange={(event) => this.handleChangeFor('city', event)} />
 
                 <input required placeholder="Phone"
                     value={this.state.phone}
