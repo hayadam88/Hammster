@@ -17,25 +17,32 @@ class Admin extends Component {
         })
     }
 
-
+    // Dispatch a saga that runs a PUT route to the "bars" table We send
+    // the bar.id of the bar we're approving along with the saga dispatch. This
+    // PUT route changes the "approved" boolean in our "bars" table to "true", and
+    // this allows the bar to now be added to the Bars page automatically via other 
+    // sagas set up in the app.
     handleBarApprove = (bar) => {
-        console.log(bar);
         this.props.dispatch({
             type: 'APPROVE_BAR',
             payload: bar.id
         })
     }
 
+    // Dispatch a saga that runs a DELETE route to the "bars" table. We send
+    // the bar.id of the bar we're denying along with the dispatch. This DELETE
+    // route then deletes this bar from the database, and thus, the DOM.
     handleBarDeny = (bar) => {
-        console.log(bar);
         this.props.dispatch({
             type: 'DENY_BAR',
             payload: bar.id
         })
     }
 
+    // Dispatch a saga that runs a DELETE route to the "messages" table. We send the
+    // message we want to delete along with the dispatch. This DELETE route then
+    // deletes this message from the database, and thus, the DOM.
     handleMessageDelete = (message) => {
-        console.log(message);
         this.props.dispatch({
             type: 'DELETE_MESSAGE',
             payload: message.message
@@ -63,6 +70,9 @@ class Admin extends Component {
                         <th>Notes</th>
                         <th></th>
                         <th></th>
+                    {/* Now we want to map through our unapprovedBars redux store. These are all the bars that users
+                    have submitted through the add bar page. A bar added via that page needs to be either approved or
+                    denied by an admin. */}
                     </tr>
                     {this.props.reduxStore.unapprovedBars.map(bar => {
                     return <tr key={bar.id}>
@@ -71,6 +81,8 @@ class Admin extends Component {
                         <td>{bar.phone}</td>
                         <td>{bar.city}</td>
                         <td>{bar.notes}</td>
+                        {/* Pass the information of whatever bar we click on to our click handlers. This way we have something
+                        to reference in our PUT and DELETE. */}
                         <td><button onClick={() => this.handleBarApprove(bar)}>Approve</button></td>
                         <td><button onClick={() => this.handleBarDeny(bar)}>Deny</button></td>
                     </tr>
@@ -106,11 +118,11 @@ class Admin extends Component {
              return (
                 <h1>404</h1>
              )
-         }
+         } // end else render
         
         }// End render
    
-}
+} // end Class
 
 
 const mapStateToProps = (reduxStore) => ({
