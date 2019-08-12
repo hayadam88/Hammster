@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 
 
-
 class Admin extends Component {
  
     componentDidMount() {
@@ -59,8 +58,9 @@ class Admin extends Component {
             <br/>
             <br/>
             <br/>
+            <div id="admin-content">
                 <div>
-                    <h1>
+                    <h1 id="administration-h1">
                     Administration Page
                     </h1>
                 </div>
@@ -95,7 +95,7 @@ class Admin extends Component {
                 </table>
                 <br/>
                 <h1>Messages Feed</h1>
-                <table align="center">
+                <table id="admin-messages" align="center">
                     <tbody>
                     <tr>
                         <th>User Name</th>
@@ -119,6 +119,7 @@ class Admin extends Component {
                 <br/>
                 <br/>
                 <br/>
+            </div>
             </>
          )} // end if user.id = 2 render
          // If someone with a user.id other than 2 trys to visit /admin, they will see 404, rendered below

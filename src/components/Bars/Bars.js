@@ -24,14 +24,13 @@ class Bars extends Component {
                 <br/>
                 <br/>
                 <br/>
-                <div>
+                <div className="bars-body">
                     <h1 id="welcome" align="center">
                     Bars
                     </h1>
                     <p>
                     Click a bar's name below to learn more about it!
                     </p>
-                </div>
                 <ul>
                     {this.props.reduxStore.barListReducer.map(bar => {
                     return <li key={bar.id} onClick={() => this.handleClick(bar)}>
@@ -39,6 +38,7 @@ class Bars extends Component {
                     </li>   
                     })}
                 </ul>
+                </div>
                 <br/>
                 <br/>
                 <br/>

@@ -48,13 +48,7 @@ class MessageFeed extends Component {
                     <button className="messageSubmit" onClick={this.handleSubmit}>Submit</button>
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+
                     <h3>
                     What are Hammsters saying about this bar?
                     </h3>

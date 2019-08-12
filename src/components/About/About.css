@@ -1,10 +1,8 @@
-img {
-    float: right;
-    margin-right: 80px;
-}
 
 body {
 background-image: url(https://i.ibb.co/wgmd69f/obg.jpg);
+/* background-image: url(https://i.ibb.co/52zyBBq/1565637116127.png); */
+/* background-size: stretch; */
 background-size: 100%;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -19,6 +17,16 @@ ul {
     margin-left: 20px;
 }
 
-textarea {
-    margin-left: 20px;
+#welcome {
+    text-align: center;
+}
+
+#about-pic {
+    float: right;
+    margin-right: 100px;
+}
+
+#about-text {
+    margin-left: 100px;
+    margin-right: 100px;
 }

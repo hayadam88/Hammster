@@ -5,10 +5,10 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 
 const Nav = (props) => (
-  <div className="nav">
-      <h1 className="nav-title">Hammster</h1>
-      <div className="nav-right">
-      <Link className="nav-link" to="/home">
+  <div className="nav-master">
+      <h1 className="nav-title-master">Hammster</h1>
+      <div className="nav-right-master">
+      <Link className="nav-link-master" to="/home">
         {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
         and call this link 'Login / Register' if they are not */}
@@ -17,20 +17,20 @@ const Nav = (props) => (
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
-          <Link className="nav-link" to="/bars">
+          <Link className="nav-link-master" to="/bars">
             Bars
           </Link>
-           <Link className="nav-link" to="/addbar">
+           <Link className="nav-link-master" to="/addbar">
             Add Bar
           </Link>
         </>
       )}
       {props.user.id === 2 && (
-        <Link className="nav-link" to="/admin">
+        <Link className="nav-link-master" to="/admin">
           Admin
         </Link>
       )}
-      <LogOutButton className="nav-link"/>
+      <LogOutButton className="nav-link-master"/>
     </div>
   </div>
 );
