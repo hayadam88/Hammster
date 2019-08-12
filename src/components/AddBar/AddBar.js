@@ -42,7 +42,7 @@ class AddBar extends Component {
     render() {
         return (
             <>
-            <p>The continued survival and growth of Hammster depends on users like you. Found a bar that
+            <p>The continued growth and viability of Hammster depends on users like you. Found a bar that
                 serves Hamm's on tap, but it's not on the app? Submit its information below, and if it looks good, we'll
                 add it to the app!</p>
             <form onSubmit={this.handleSubmit}>
@@ -59,7 +59,7 @@ class AddBar extends Component {
                     value={this.state.phone}
                     onChange={(event) => this.handleChangeFor('phone', event)} />
 
-                <textarea required placeholder="Hamm's Information"
+                <textarea rows="4" cols="60" required placeholder="Hamm's Information"
                     value={this.state.notes}
                     onChange={(event) => this.handleChangeFor('notes', event)} />
                 <br />

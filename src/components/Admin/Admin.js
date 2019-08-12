@@ -66,7 +66,6 @@ class Admin extends Component {
                         <th>Bar Name</th>
                         <th>Address</th>
                         <th>Phone</th>
-                        <th>City</th>
                         <th>Notes</th>
                         <th></th>
                         <th></th>
@@ -79,7 +78,6 @@ class Admin extends Component {
                         <td>{bar.name}</td>
                         <td>{bar.address}</td>
                         <td>{bar.phone}</td>
-                        <td>{bar.city}</td>
                         <td>{bar.notes}</td>
                         {/* Pass the information of whatever bar we click on to our click handlers. This way we have something
                         to reference in our PUT and DELETE. */}
@@ -111,6 +109,11 @@ class Admin extends Component {
                     }
                     </tbody>                    
                 </table>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </>
          )} // end if user.id = 2 render
          // If someone with a user.id other than 2 trys to visit /admin, they will see 404, rendered below

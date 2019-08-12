@@ -34,6 +34,11 @@ class Bars extends Component {
                     </li>   
                     })}
                 </ul>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </>
          )}// End render
    
