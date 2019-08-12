@@ -58,6 +58,7 @@ class Admin extends Component {
             <br/>
             <br/>
             <br/>
+            <br/>
                 <div>
                     <h1>
                     Administration Page

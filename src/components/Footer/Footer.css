@@ -4,8 +4,7 @@ footer {
     position: fixed;
     bottom: 0px;
     height: 80px;
-    width: stretch;
-    overflow: scroll;
+    width: 100%;
 }
 
 .footer-text {
