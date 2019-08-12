@@ -9,7 +9,13 @@ import './About.css';
 // and then instead of `props.user.username` you could use `user.username`
 const About = (props) => (
     <>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <div>
+
             <h3 id="welcome">
             Welcome to Hammster, { props.user.username }! So what exactly is Hammster?
             </h3>  
@@ -24,6 +30,11 @@ const About = (props) => (
                 is here! Using Hammster, you can easily find local Twin Cities bars that serve Hamm's on tap. 
                 Navigate to the bars page to find a bar near you!
             </p>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
     </>
 

@@ -21,6 +21,10 @@ class SpecificBar extends Component {
         console.log(this.props.match.params.id)
         return (
              <>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <div>
                     <button onClick={this.handleClick}>Go back to Bars List</button>
                     <center><h1>

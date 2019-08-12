@@ -42,6 +42,10 @@ class AddBar extends Component {
     render() {
         return (
             <>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <p>The continued growth and viability of Hammster depends on users like you. Found a bar that
                 serves Hamm's on tap, but it's not on the app? Submit its information below, and if it looks good, we'll
                 add it to the app!</p>

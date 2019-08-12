@@ -4,9 +4,15 @@
 }
 
 .nav {
-  overflow: hidden;
   background-color: #fde67fe1;
+  position: fixed;
+  height: 80px;
+  width: stretch;
+  top: 0px;
+  opacity: 100%;
 }
+
+
 
 .nav-link {
   color: #f2f2f2;
@@ -27,6 +33,3 @@
   background-color: #008183;
 }
 
-/* .nav-right {
-  float: right;
-} */

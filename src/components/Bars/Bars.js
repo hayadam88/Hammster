@@ -19,6 +19,11 @@ class Bars extends Component {
     render() {
         return (
             <>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <div>
                     <h1 id="welcome" align="center">
                     Bars

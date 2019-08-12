@@ -54,6 +54,10 @@ class Admin extends Component {
         if (this.props.reduxStore.user.id === 2){
             return (
             <>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
                 <div>
                     <h1>
                     Administration Page
