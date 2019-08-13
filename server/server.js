@@ -146,10 +146,10 @@ app.delete('/messages/:message_id', (req, res) => {
 });
 
 //PUT: approve a bar on Admin page
-app.put('/bars/:bar_id', (req, res) => {
+app.put('/bars/:approve', (req, res) => {
   console.log('Updating bars')
-  const sqlText = `UPDATE "bars" SET "approved" = $1;`;
-  values = [true]
+  const sqlText = `UPDATE "bars" SET "approved"=$1 WHERE "id"=$2;`;
+  values = [true, req.params.approve]
   pool.query(sqlText, values)
     .then((response) => {
       res.sendStatus(200);
