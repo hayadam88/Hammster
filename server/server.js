@@ -63,7 +63,11 @@ app.get('/bars/details', (req, res) => {
 
 //GET messages about a specific bar for MessageFeed page
 app.get('/messages/:bar_id', (req, res) => {
-  pool.query(`SELECT "user"."username" as "users_name", "messages"."id" as "message_id", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" WHERE "bar_id"=$1 ORDER BY "date" DESC;`, [req.params.bar_id])
+  pool.query(`SELECT "user"."username" as "users_name", "messages"."id" as "message_id", "messages"."message", "messages"."date", "bars"."name" 
+  FROM "user" 
+  JOIN "messages" ON "user"."id" = "messages"."user_id" 
+  JOIN "bars" ON "bars"."id" = "messages"."bar_id" 
+  WHERE "bar_id"=$1 ORDER BY "date" DESC;`, [req.params.bar_id])
     .then((result) => {
       res.send(result.rows);
     })
@@ -73,14 +77,18 @@ app.get('/messages/:bar_id', (req, res) => {
     });
 });
 
-//GET all messages for the Admin page
+//GET flagged messages for the Admin page
 app.get('/messages', (req, res) => {
-  pool.query(`SELECT "user"."username" as "users_name", "messages"."id" as "message_id", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" ORDER BY "users_name";`)
+  pool.query(`SELECT "user"."username" as "users_name", "messages"."id" as "message_id", "messages"."message", "messages"."date", "bars"."name" 
+  FROM "user" 
+  JOIN "messages" ON "user"."id" = "messages"."user_id" 
+  JOIN "bars" ON "bars"."id" = "messages"."bar_id" 
+  WHERE "flagged" = true ORDER BY "users_name";`)
     .then((result) => {
       res.send(result.rows);
     })
     .catch(error => {
-      console.log('Error getting all messages for Admin GET request', error);
+      console.log('Error getting flagged messages for Admin GET request', error);
       res.sendStatus(500);
     });
 });
@@ -159,9 +167,23 @@ app.put('/bars/:approve', (req, res) => {
 
 //PUT: change flagged status to true
 app.put('/messages/:flagged', (req, res) => {
-  console.log('Updating bars')
+  console.log('Updating message to flagged')
   const sqlText = `UPDATE "messages" SET "flagged"=$1 WHERE "id"=$2;`;
   values = [true, req.params.flagged]
+  pool.query(sqlText, values)
+    .then((response) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+    })
+})
+
+//PUT: change flagged status to false
+app.put('/messages/flagged/:message_id', (req, res) => {
+  console.log('Updating message to not flagged')
+  const sqlText = `UPDATE "messages" SET "flagged"=$1 WHERE "id"=$2;`;
+  values = [false, req.params.message_id]
   pool.query(sqlText, values)
     .then((response) => {
       res.sendStatus(200);

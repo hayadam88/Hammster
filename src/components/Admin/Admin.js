@@ -12,7 +12,7 @@ class Admin extends Component {
         });
         // Get all messages in the database
         this.props.dispatch({
-            type: 'FETCH_ALL_MESSAGES'
+            type: 'FETCH_FLAGGED_COMMENTS'
         })
     }
 
@@ -45,6 +45,14 @@ class Admin extends Component {
         console.log(message)
         this.props.dispatch({
             type: 'DELETE_MESSAGE',
+            payload: message.message_id
+        })
+    }
+
+    handleCancelMessage = (message) => {
+        console.log(message)
+        this.props.dispatch({
+            type: 'UNFLAG_COMMENT',
             payload: message.message_id
         })
     }
@@ -104,12 +112,13 @@ class Admin extends Component {
                         <th>Message</th>
                         <th></th>
                     </tr>
-                    {this.props.reduxStore.setAllMessages.map(message => {
-                    return <tr key={message.message}>
+                    {this.props.reduxStore.setFlaggedComments.map(message => {
+                    return <tr key={message.message_id}>
                         <td>{message.users_name}</td>
                         <td>{message.name}</td>
                         <td>{message.message}</td>
                         <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
+                        <td><button onClick={() => this.handleCancelMessage(message)}>Unflag</button></td>
                     </tr>
                     })
                     }

@@ -6,7 +6,7 @@ function* deleteMessage(action) {
     console.log('deleteMessage action is', action);
     yield Axios.delete(`/messages/${action.payload}`);
     yield put({
-        type: 'FETCH_ALL_MESSAGES',
+        type: 'FETCH_FLAGGED_COMMENTS',
     })
 }
 
