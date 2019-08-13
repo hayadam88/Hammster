@@ -42,9 +42,10 @@ class Admin extends Component {
     // message we want to delete along with the dispatch. This DELETE route then
     // deletes this message from the database, and thus, the DOM.
     handleMessageDelete = (message) => {
+        console.log(message)
         this.props.dispatch({
             type: 'DELETE_MESSAGE',
-            payload: message.message
+            payload: message.message_id
         })
     }
 

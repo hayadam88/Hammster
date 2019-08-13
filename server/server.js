@@ -63,7 +63,7 @@ app.get('/bars/details', (req, res) => {
 
 //GET messages about a specific bar for MessageFeed page
 app.get('/messages/:bar_id', (req, res) => {
-  pool.query(`SELECT "user"."username" as "users_name", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" WHERE "bar_id"=$1 ORDER BY "date" DESC;`, [req.params.bar_id])
+  pool.query(`SELECT "user"."username" as "users_name", "messages"."id" as "message_id", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" WHERE "bar_id"=$1 ORDER BY "date" DESC;`, [req.params.bar_id])
     .then((result) => {
       res.send(result.rows);
     })
@@ -75,7 +75,7 @@ app.get('/messages/:bar_id', (req, res) => {
 
 //GET all messages for the Admin page
 app.get('/messages', (req, res) => {
-  pool.query(`SELECT "user"."username" as "users_name", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" ORDER BY "users_name";`)
+  pool.query(`SELECT "user"."username" as "users_name", "messages"."id" as "message_id", "messages"."message", "messages"."date", "bars"."name" FROM "user" JOIN "messages" ON "user"."id" = "messages"."user_id" JOIN "bars" ON "bars"."id" = "messages"."bar_id" ORDER BY "users_name";`)
     .then((result) => {
       res.send(result.rows);
     })
@@ -135,8 +135,8 @@ app.delete('/bars/:bar_id', (req, res) => {
 });
 
 //DELETE a Message Feed message on Admin page
-app.delete('/messages/:message', (req, res) => {
-  pool.query('DELETE FROM "messages" WHERE "message"=$1;', [req.params.message])
+app.delete('/messages/:message_id', (req, res) => {
+  pool.query('DELETE FROM "messages" WHERE "id"=$1;', [req.params.message_id])
     .then((result) => {
       res.sendStatus(200);
     }).catch((error) => {
