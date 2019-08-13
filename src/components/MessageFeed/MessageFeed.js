@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment'
 import './MessageFeed.css';
 
 
@@ -55,7 +56,7 @@ class MessageFeed extends Component {
                     
                      {this.props.reduxStore.setBarMessages.map(message => {
                     return <div key={message.message}>
-                    <p>{message.users_name} was at {message.name} on {message.date} and said:</p>
+                    <p>{message.users_name} was at {message.name} on {moment(message.date).format('LLL')} and said:</p>
                     <p>{message.message}</p>  
                     <p>---------------------</p>
                     </div> 

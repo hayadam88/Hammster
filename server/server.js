@@ -92,12 +92,10 @@ app.post('/messages', (req, res) => {
   VALUES ($1, $2, $3, $4);`
   
   let today = new Date();
-  let dd = String(today.getDate()).padStart(2, '0');
-  let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  let yyyy = today.getFullYear();
-
-  today = mm + '/' + dd + '/' + yyyy;
-  const values = [req.body.bar_id, req.body.user_id, today, req.body.message];
+  let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let dateTime = date + ' ' + time;
+  const values = [req.body.bar_id, req.body.user_id, dateTime, req.body.message];
   console.log(req.body.message)
   pool.query(sqlText, values)
   .then((results) => {

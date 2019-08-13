@@ -64,9 +64,9 @@ class AddBar extends Component {
                     value={this.state.phone}
                     onChange={(event) => this.handleChangeFor('phone', event)} />
 
-                <textarea rows="4" cols="50" required placeholder="Hamm's Information"
+                <textarea rows="4" cols="40" required placeholder="Hamm's Information"
                     value={this.state.notes}
-                    onChange={(event) => this.handleChangeFor('notes', event)} />
+                    onChange={(event) => this.handleChangeFor('notes', event)} maxLength="200" />
                 <br />
                 <button type="submit">
                     Submit Bar
