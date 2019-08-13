@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment'
 import './MessageFeed.css';
+import { thisExpression } from '@babel/types';
 
 
 
@@ -37,7 +38,16 @@ class MessageFeed extends Component {
             message: '',
         })
     }
+
+    handleFlagButton = (message) => {
+        console.log(message)
+        this.props.dispatch({
+            type: 'FLAG_COMMENT',
+            payload: message.message_id
+        })
+    }
       
+
     render() {
         return (
             <>
@@ -57,7 +67,7 @@ class MessageFeed extends Component {
                      {this.props.reduxStore.setBarMessages.map(message => {
                     return <div key={message.message}>
                     <p>{message.users_name} was at {message.name} on {moment(message.date).format('LLL')} and said:</p>
-                    <p>{message.message}</p>  
+                    <p>{message.message}</p> <button onClick={() => this.handleFlagButton(message)}>Report this comment</button> 
                     <p>---------------------</p>
                     </div> 
                      })}    

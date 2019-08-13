@@ -12,6 +12,7 @@ import fetchAllMessages from './fetchAllMessages';
 import denyBar from './denyBar';
 import approveBar from './approveBar';
 import deleteMessage from './deleteMessage';
+import flagComment from './flagComment';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -31,6 +32,7 @@ export default function* rootSaga() {
   yield takeEvery('DENY_BAR', denyBar);
   yield takeEvery('APPROVE_BAR', approveBar);
   yield takeEvery('DELETE_MESSAGE', deleteMessage);
+  yield takeEvery('FLAG_COMMENT', flagComment);
   yield all([
     loginSaga(),
     registrationSaga(),

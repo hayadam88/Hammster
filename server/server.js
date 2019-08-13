@@ -157,6 +157,20 @@ app.put('/bars/:approve', (req, res) => {
     })
 })
 
+//PUT: change flagged status to true
+app.put('/messages/:flagged', (req, res) => {
+  console.log('Updating bars')
+  const sqlText = `UPDATE "messages" SET "flagged"=$1 WHERE "id"=$2;`;
+  values = [true, req.params.flagged]
+  pool.query(sqlText, values)
+    .then((response) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+    })
+})
+
 // Serve static files
 app.use(express.static('build'));
 
