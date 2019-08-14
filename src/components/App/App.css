@@ -57,13 +57,28 @@ input {
 
 #admin-messages td {
     border: 1px solid black;
+    background-color: white;
 }
 
 #admin-content {
     text-align: center;
 }
 
+#suggested-bars-table td {
+    border: 1px solid black;
+    background-color: white;
+}
+
+#suggested-bars-table {
+    text-align: center;
+}
+
 .suggested-bars-div {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.message-feed-div {
     padding-left: 20px;
     padding-right: 20px;
 }
