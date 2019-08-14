@@ -15,7 +15,7 @@ import AddBar from '../AddBar/AddBar';
 import SpecificBar from '../SpecificBar/SpecificBar';
 import Admin from '../Admin/Admin';
 
-import './App.css';
+
 
 class App extends Component {
   componentDidMount () {

@@ -25,7 +25,7 @@ class Bars extends Component {
                 <br/>
                 <br/>
                 <div className="bars-body">
-                    <h1 id="welcome" align="center">
+                    <h1 id="welcome">
                     Bars
                     </h1>
                     <p>

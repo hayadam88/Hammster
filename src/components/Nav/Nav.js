@@ -6,7 +6,10 @@ import './Nav.css';
 
 const Nav = (props) => (
   <div className="nav-master">
-      <h1 className="nav-title-master">Hammster</h1>
+      <img src="images/HammsterFaceTiny.png" alt="face goes here"></img>
+      <img src="images/HammserTextLogoResizeTwo.png" alt="Logo goes here"></img>
+      <img src="images/HammsterFaceTiny.png" alt="face goes here"></img>
+      
       <div className="nav-right-master">
       <Link className="nav-link-master" to="/home">
         {/* Show this link if they are logged in or not,

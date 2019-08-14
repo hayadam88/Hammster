@@ -2,3 +2,7 @@
     text-align: center;
 }
 
+.bar-info p {
+    padding-left: 40px;
+    padding-right: 40px;
+}
