@@ -140,7 +140,7 @@ app.delete('/bars/:bar_id', (req, res) => {
   })
 });
 
-//DELETE a Message Feed message on Admin page
+//DELETE a Flagged Message on Admin page
 app.delete('/messages/:message_id', (req, res) => {
   pool.query('DELETE FROM "messages" WHERE "id"=$1;', [req.params.message_id])
     .then((result) => {
@@ -151,8 +151,8 @@ app.delete('/messages/:message_id', (req, res) => {
     })
 });
 
-//DELETE a Message Feed message on Admin page
-app.delete('/messages/details/:id', (req, res) => {
+//DELETE a message directly from Message Feed
+app.delete('/messages/admindelete/:id', (req, res) => {
   pool.query('DELETE FROM "messages" WHERE "id"=$1;', [req.params.id])
     .then((result) => {
       res.sendStatus(200);
@@ -161,6 +161,8 @@ app.delete('/messages/details/:id', (req, res) => {
       res.sendStatus(500);
     })
 });
+
+
 
 //PUT: approve a bar on Admin page
 app.put('/bars/:approve', (req, res) => {

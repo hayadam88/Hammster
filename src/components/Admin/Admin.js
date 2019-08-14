@@ -142,8 +142,8 @@ class Admin extends Component {
                 </div>
             </div>
             </>
-         )} // end if user.id = 2 render
-         // If someone with a user.id other than 2 trys to visit /admin, they will see 404, rendered below
+         )} // end if user.id = 8 render
+         // If someone with a user.id other than 8 trys to visit /admin, they will see they're not allowed, rendered below
          else {
              return (
                 <>

@@ -53,7 +53,7 @@ class MessageFeed extends Component {
         console.log(message)
         this.props.dispatch({
             type: 'DELETE_COMMENT_ADMIN',
-            payload: message
+            payload: message.message_id
         })
     }
       
