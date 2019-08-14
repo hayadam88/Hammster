@@ -32,7 +32,7 @@ class MessageFeed extends Component {
 
     handleSubmit = (event) => {
         console.log('clicked submit');
-        alert('Thanks for sharing your thoughts!')
+        alert('Thanks for sharing your thoughts!');
         this.props.dispatch({type: 'ADD_MESSAGE', payload: this.state})
         this.setState({
             ...this.state,
@@ -41,18 +41,52 @@ class MessageFeed extends Component {
     }
 
     handleFlagButton = (message) => {
-        console.log(message)
-        alert('This comment has been flagged for moderation')
+        console.log(message);
+        alert('This comment has been flagged for moderation');
         this.props.dispatch({
             type: 'FLAG_COMMENT',
             payload: message.message_id
         })
     }
+
+    handleDeleteButton = (message) => {
+        console.log(message)
+    }
       
 
     render() {
+        if (this.props.reduxStore.user.id === 8) {
+            return (
+                <>
+                < div className="message-input" >
+                    
+                    <h3>Talk about your experience at {this.props.bar_name}</h3>
+                    <textarea rows="4" cols="70" onChange={this.handleChange} value={this.state.message}></textarea>
+                    <br/>
+                    <button className="messageSubmit" onClick={this.handleSubmit}>Submit</button>
+                    <br/>
+                    <br/>
+
+                    <h3>
+                    What are Hammsters saying about this bar?
+                    </h3>
+                    
+                     {this.props.reduxStore.setBarMessages.map(message => {
+                    return <div key={message.message} className="message-content">
+                    <p>{message.users_name} was at {message.name} on {moment(message.date).format('LLL')} and said:</p>
+                    <p>{message.message}</p> <button onClick={() => this.handleFlagButton(message)}>Report this comment</button>
+                    <button onClick={() => this.handleDeleteButton(message)}>Delete Comment</button>
+                    <p>---------------------</p>
+                    </div> 
+                     })}    
+                </div>
+
+                
+            </>
+         )} //end if Admin render
+        else {
         return (
-            <>
+             <>
                 < div className="message-input" >
                     
                     <h3>Talk about your experience at {this.props.bar_name}</h3>
@@ -78,6 +112,7 @@ class MessageFeed extends Component {
                 
             </>
          )}
+    }
    
 
 
