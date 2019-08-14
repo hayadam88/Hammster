@@ -78,7 +78,7 @@ class Admin extends Component {
                 </div>
                 <div className="suggested-bars-div">
                     <h1>Suggested Bars</h1>
-                <table align="center">
+                <table align="center" id="suggested-bars-table">
                     <tbody>
                     <tr>
                         <th>Bar Name</th>
@@ -108,26 +108,26 @@ class Admin extends Component {
                 </table>
                 <br/>
                 </div>
-                 
-                <h1>Messages Feed</h1>
-                <table id="admin-messages" align="center">
-                    <tbody>
-                    <tr>
-                        <th>User Name</th>
-                        <th>Bar Name</th>
-                        <th>Message</th>
-                        <th></th>
-                    </tr>
-                    {this.props.reduxStore.setFlaggedComments.map(message => {
-                    return <tr key={message.message_id}>
-                        <td>{message.users_name}</td>
-                        <td>{message.name}</td>
-                        <td>{message.message}</td>
-                        <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
-                        <td><button onClick={() => this.handleCancelMessage(message)}>Unflag</button></td>
-                    </tr>
-                    })
-                    }
+                <div id="messages-feed-div">
+                    <h1>Messages Feed</h1>
+                    <table id="admin-messages" align="center">
+                        <tbody>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Bar Name</th>
+                                <th>Message</th>
+                                <th></th>
+                            </tr>
+                            {this.props.reduxStore.setFlaggedComments.map(message => {
+                            return <tr key={message.message_id}>
+                                <td>{message.users_name}</td>
+                                <td>{message.name}</td>
+                                <td>{message.message}</td>
+                                <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
+                                <td><button onClick={() => this.handleCancelMessage(message)}>Unflag</button></td>
+                            </tr>
+                            })
+                            }
                     </tbody>                    
                 </table>
                 <br/>
@@ -135,6 +135,7 @@ class Admin extends Component {
                 <br/>
                 <br/>
                 <br/>
+                </div>
             </div>
             </>
          )} // end if user.id = 2 render
