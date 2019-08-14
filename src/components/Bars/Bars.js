@@ -38,6 +38,9 @@ class Bars extends Component {
                     </li>   
                     })}
                 </ul>
+                <ul>
+                    <li>More to come...</li>
+                </ul>
                 </div>
                 <br/>
                 <br/>

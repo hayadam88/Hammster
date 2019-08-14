@@ -59,7 +59,7 @@ class Admin extends Component {
 
     render() {
         // This will only render if the user.id is 2. The user.id of 2 is the user.id of me, the Admin
-        if (this.props.reduxStore.user.id === 2){
+        if (this.props.reduxStore.user.id === 8){
             return (
             <>
             <br/>
@@ -135,7 +135,16 @@ class Admin extends Component {
          // If someone with a user.id other than 2 trys to visit /admin, they will see 404, rendered below
          else {
              return (
-                <h1>404</h1>
+                <>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <center><h1>
+                    ACCESS DENIED
+                </h1></center>
+                </>
              )
          } // end else render
         

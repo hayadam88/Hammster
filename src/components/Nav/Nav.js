@@ -25,7 +25,7 @@ const Nav = (props) => (
           </Link>
         </>
       )}
-      {props.user.id === 2 && (
+      {props.user.id === 8 && (
         <Link className="nav-link-master" to="/admin">
           Admin
         </Link>

@@ -32,6 +32,7 @@ class MessageFeed extends Component {
 
     handleSubmit = (event) => {
         console.log('clicked submit');
+        alert('Thanks for sharing your thoughts!')
         this.props.dispatch({type: 'ADD_MESSAGE', payload: this.state})
         this.setState({
             ...this.state,
@@ -41,6 +42,7 @@ class MessageFeed extends Component {
 
     handleFlagButton = (message) => {
         console.log(message)
+        alert('This comment has been flagged for moderation')
         this.props.dispatch({
             type: 'FLAG_COMMENT',
             payload: message.message_id
@@ -51,10 +53,10 @@ class MessageFeed extends Component {
     render() {
         return (
             <>
-                <div>
+                < div className="message-input" >
                     
                     <h3>Talk about your experience at {this.props.bar_name}</h3>
-                    <textarea rows="4" cols="80" onChange={this.handleChange} value={this.state.message}></textarea>
+                    <textarea rows="4" cols="70" onChange={this.handleChange} value={this.state.message}></textarea>
                     <br/>
                     <button className="messageSubmit" onClick={this.handleSubmit}>Submit</button>
                     <br/>
@@ -65,7 +67,7 @@ class MessageFeed extends Component {
                     </h3>
                     
                      {this.props.reduxStore.setBarMessages.map(message => {
-                    return <div key={message.message}>
+                    return <div key={message.message} className="message-content">
                     <p>{message.users_name} was at {message.name} on {moment(message.date).format('LLL')} and said:</p>
                     <p>{message.message}</p> <button onClick={() => this.handleFlagButton(message)}>Report this comment</button> 
                     <p>---------------------</p>
