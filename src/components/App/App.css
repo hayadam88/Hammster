@@ -8,13 +8,20 @@ body {
     margin: 50px;
 }
 
+#add-bar-text {
+    padding-left: 20px;
+    padding-right: 20px
+}
+
 form {
     background-color: #dbd5d5;
     width: 30%;
     height: 250px;
     margin: 20px auto;
-    padding: 25px;
+    padding-top: 20px;
     border-radius: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 input {
@@ -54,4 +61,9 @@ input {
 
 #admin-content {
     text-align: center;
+}
+
+.suggested-bars-div {
+    padding-left: 20px;
+    padding-right: 20px;
 }

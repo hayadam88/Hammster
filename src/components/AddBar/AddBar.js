@@ -23,6 +23,7 @@ class AddBar extends Component {
     }
 
     handleSubmit = (event) => {
+        alert('Thanks for submitting a bar!')
         event.preventDefault();
         console.log(`Adding bar`, this.state);
         this.props.dispatch({
@@ -47,10 +48,11 @@ class AddBar extends Component {
             <br/>
             <br/>
             <br/>
-            <p>The continued growth and viability of Hammster depends on users like you. Found a bar that
+            <p id="add-bar-text">The continued growth and viability of Hammster depends on users like you. Find a bar that
                 serves Hamm's on tap, but it's not on the app? Submit its information below, and if it looks good, we'll
                 add it to the app!</p>
-            <form onSubmit={this.handleSubmit}>
+            <div className="add-bar-form">
+                <form onSubmit={this.handleSubmit}>
 
                 <input required placeholder="Bar Name"
                     value={this.state.bar_name}
@@ -73,6 +75,8 @@ class AddBar extends Component {
                     </button>
 
             </form>
+            </div>
+            
             <br/>
             <br/>
             <br/>
