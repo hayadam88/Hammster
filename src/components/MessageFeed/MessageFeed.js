@@ -51,6 +51,10 @@ class MessageFeed extends Component {
 
     handleDeleteButton = (message) => {
         console.log(message)
+        this.props.dispatch({
+            type: 'DELETE_COMMENT_ADMIN',
+            payload: message
+        })
     }
       
 

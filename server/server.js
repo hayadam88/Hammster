@@ -151,6 +151,17 @@ app.delete('/messages/:message_id', (req, res) => {
     })
 });
 
+//DELETE a Message Feed message on Admin page
+app.delete('/messages/details/:id', (req, res) => {
+  pool.query('DELETE FROM "messages" WHERE "id"=$1;', [req.params.id])
+    .then((result) => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log('Error DELETING message', error);
+      res.sendStatus(500);
+    })
+});
+
 //PUT: approve a bar on Admin page
 app.put('/bars/:approve', (req, res) => {
   console.log('Updating bars')

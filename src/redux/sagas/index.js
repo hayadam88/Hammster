@@ -15,6 +15,7 @@ import deleteMessage from './deleteMessage';
 import flagComment from './flagComment';
 import fetchFlaggedComments from './fetchFlaggedComments';
 import unflagComment from './unflagComment';
+import deleteCommentAdmin from './deleteCommentAdmin'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -37,6 +38,7 @@ export default function* rootSaga() {
   yield takeEvery('FLAG_COMMENT', flagComment);
   yield takeEvery('FETCH_FLAGGED_COMMENTS', fetchFlaggedComments);
   yield takeEvery('UNFLAG_COMMENT', unflagComment);
+  yield takeEvery('DELETE_COMMENT_ADMIN', deleteCommentAdmin);
   yield all([
     loginSaga(),
     registrationSaga(),

@@ -61,10 +61,11 @@ class Admin extends Component {
     }
 
     render() {
-        // This will only render if the user.id is 2. The user.id of 2 is the user.id of me, the Admin
+        // This will only render if the user.id is 8. The user.id of 8 is the user.id of the Admin
         if (this.props.reduxStore.user.id === 8){
             return (
             <>
+            {/* These breaks are necessary for styling reasons. */}
             <br/>
             <br/>
             <br/>
@@ -77,7 +78,7 @@ class Admin extends Component {
                     </h1>
                 </div>
                 <div className="suggested-bars-div">
-                    <h1>Suggested Bars</h1>
+                    <h1>------Suggested Bars------</h1>
                 <table align="center" id="suggested-bars-table">
                     <tbody>
                     <tr>
@@ -109,7 +110,7 @@ class Admin extends Component {
                 <br/>
                 </div>
                 <div id="messages-feed-div">
-                    <h1>Messages Feed</h1>
+                    <h1>--------Flagged Messages--------</h1>
                     <table id="admin-messages" align="center">
                         <tbody>
                             <tr>
@@ -118,6 +119,8 @@ class Admin extends Component {
                                 <th>Message</th>
                                 <th></th>
                             </tr>
+                            {/* Map through any messsages that users have reported or 'flagged,' and then render a Delete or
+                            unflag button with them. */}
                             {this.props.reduxStore.setFlaggedComments.map(message => {
                             return <tr key={message.message_id}>
                                 <td>{message.users_name}</td>
@@ -130,6 +133,7 @@ class Admin extends Component {
                             }
                     </tbody>                    
                 </table>
+                {/* These breaks are necessary for styling reasons. */}
                 <br/>
                 <br/>
                 <br/>
@@ -143,6 +147,7 @@ class Admin extends Component {
          else {
              return (
                 <>
+                {/* These breaks are necessary for styling reasons. */}
                 <br/>
                 <br/>
                 <br/>
