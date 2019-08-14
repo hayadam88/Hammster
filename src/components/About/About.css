@@ -21,10 +21,20 @@ ul {
     text-align: center;
 }
 
-#about-pic {
-    float: right;
+/* #about-pic {
+    text-align: center;
     margin-right: 100px;
+} */
+
+.about-body {
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
 }
+
+/* .about-body img {
+    float: right;
+} */
 
 #about-text {
     margin-left: 100px;

@@ -19,9 +19,6 @@ const About = (props) => (
             <h3 id="welcome">
             Welcome to Hammster, { props.user.username }! So what exactly is Hammster?
             </h3>  
-            </div>
-        <div className="hamms-photo">
-            <img src = "https://www.millercoors.com/sites/millercoors/files/inline-images/avCan.png" alt="Hamm's Pic" id="about-pic"></img>
             <p id="about-text">
                 Hammster is an app designed for a niche market of Twin Cities' beer drinkers who want to be able 
                 to find one of their favorite beers--Hamm’s--on tap. Most Hamm's fans would 
@@ -30,6 +27,8 @@ const About = (props) => (
                 is here! Using Hammster, you can easily find local Twin Cities bars that serve Hamm's on tap. 
                 Navigate to the bars page to find a bar near you!
             </p>
+            <img src = "https://www.millercoors.com/sites/millercoors/files/inline-images/avCan.png" alt="Hamm's Pic" id="about-pic"></img>
+            
             <br/>
             <br/>
             <br/>
