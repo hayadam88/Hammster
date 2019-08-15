@@ -126,7 +126,7 @@ class MessageFeed extends Component {
                     <h3>
                     What are Hammsters saying about this bar?
                     </h3>
-                    
+                    {/* Map through reducer with all of a bar's specific messages and display them to the DOM */}
                      {this.props.reduxStore.setBarMessages.map(message => {
                     return <div key={message.message} className="message-content">
                     <p><b>{message.users_name}</b> was at <b>{message.name}</b> on {moment(message.date).format('LLL')} and said:</p>
