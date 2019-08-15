@@ -43,7 +43,7 @@ class MessageFeed extends Component {
 
     handleFlagButton = (message) => {
         console.log(message);
-        alert('This comment has been flagged for moderation');
+        Swal.fire('This comment has been flagged for moderation');
         this.props.dispatch({
             type: 'FLAG_COMMENT',
             payload: message.message_id
@@ -52,6 +52,7 @@ class MessageFeed extends Component {
 
     handleDeleteButton = (message) => {
         console.log(message)
+        Swal.fire('This comment has been deleted')
         this.props.dispatch({
             type: 'DELETE_COMMENT_ADMIN',
             payload1: message.message_id,

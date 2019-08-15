@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Swal from 'sweetalert2'
 
 class AddBar extends Component {
 
@@ -23,7 +24,7 @@ class AddBar extends Component {
     }
 
     handleSubmit = (event) => {
-        alert('Thanks for submitting a bar!')
+        Swal.fire('Thank you for suggesting a bar to Hammster!')
         event.preventDefault();
         console.log(`Adding bar`, this.state);
         this.props.dispatch({
