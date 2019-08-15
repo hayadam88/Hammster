@@ -6,12 +6,14 @@ import './Bars.css';
 
 class Bars extends Component {
  
+    // When the page loads, call a saga that GETS all approved bars
     componentDidMount() {
         this.props.dispatch({
             type: 'FETCH_BARS'
         });
     }
 
+    // When clicking a specific bar, navigate to the page of that bar's id.
     handleClick = (bar) => {
         this.props.history.push(`/specificbar/${bar.id}`);
     }
@@ -19,6 +21,7 @@ class Bars extends Component {
     render() {
         return (
             <>
+                {/* These breaks are necessary for styling */}
                 <br/>
                 <br/>
                 <br/>
@@ -31,6 +34,8 @@ class Bars extends Component {
                     <p>
                     Click a bar's name below to learn more about it!
                     </p>
+                {/* Map through a reducer that has all of the approved bars. Also, setup a click event so each 
+                bar can be clicked on so you can navigate to their page */}
                 <ul>
                     {this.props.reduxStore.barListReducer.map(bar => {
                     return <li key={bar.id} onClick={() => this.handleClick(bar)}>
@@ -42,6 +47,7 @@ class Bars extends Component {
                     <li>More to come...</li>
                 </ul>
                 </div>
+                {/* Breaks are necessary for styling */}
                 <br/>
                 <br/>
                 <br/>

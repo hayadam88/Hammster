@@ -16,7 +16,7 @@ class Admin extends Component {
         })
     }
 
-    // Dispatch a saga that runs a PUT route to the "bars" table sends
+    // Calls a saga that runs a PUT route to the "bars" table sends
     // the bar.id of the bar we're approving along with the saga dispatch. This
     // PUT route changes the "approved" boolean in our "bars" table to "true", and
     // this allows the bar to now be added to the Bars page automatically via other 
@@ -28,7 +28,7 @@ class Admin extends Component {
         })
     }
 
-    // Dispatch a saga that runs a DELETE route to the "bars" table. Sends
+    // Calls a saga that runs a DELETE route to the "bars" table. Sends
     // the bar.id of the bar we're denying along with the dispatch. This DELETE
     // route then deletes this bar from the database, and thus, the DOM.
     handleBarDeny = (bar) => {
@@ -38,7 +38,7 @@ class Admin extends Component {
         })
     }
 
-    // Dispatch a saga that runs a DELETE route to the "messages" table. Sends the
+    // Calls a saga that runs a DELETE route to the "messages" table. Sends the
     // message we want to delete along with the dispatch. This DELETE route then
     // deletes this message from the database, and thus, the DOM.
     handleMessageDelete = (message) => {
@@ -49,7 +49,7 @@ class Admin extends Component {
         })
     }
 
-    // Dispatch a saga that runs a PUT route to the "messages" table. Sends the id
+    // Calls a saga that runs a PUT route to the "messages" table. Sends the id
     // of the message along with it. This put route will update the flagged status in our
     // table from TRUE to FALSE
     handleCancelMessage = (message) => {

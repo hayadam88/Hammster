@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// This is the login page. All of this code was provided for us
 class LoginPage extends Component {
   state = {
     username: '',
