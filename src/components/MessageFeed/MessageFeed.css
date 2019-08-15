@@ -1,9 +1,15 @@
 .message-content {
-    padding-left: 20px;
-    padding-right: 20px;
+    
+    border-style: ridge;
+    background-color: rgba(206, 203, 203, 0.616);
+    margin-bottom: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+    
 }
 
 .message-input {
     padding-left: 20px;
     padding-right: 20px;
+
 }

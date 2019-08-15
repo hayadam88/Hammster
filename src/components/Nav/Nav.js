@@ -6,9 +6,9 @@ import './Nav.css';
 
 const Nav = (props) => (
   <div className="nav-master">
-      <img src="images/HammsterFaceTiny.png" alt="face goes here"></img>
-      <img src="images/HammserTextLogoResizeTwo.png" alt="Logo goes here"></img>
-      <img src="images/HammsterFaceTiny.png" alt="face goes here"></img>
+      <img src="images/HammsterFaceTiny.png" alt="face goes here" className="hammster-face-logo"></img>
+      <img src="images/HammserTextLogoResizeTwo.png" alt="Logo goes here" id="hammster-logo"></img>
+      <img src="images/HammsterFaceTiny.png" alt="face goes here" className="hammster-face-logo"></img>
       
       <div className="nav-right-master">
       <Link className="nav-link-master" to="/home">

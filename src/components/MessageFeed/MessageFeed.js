@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment'
 import './MessageFeed.css';
 import { thisExpression } from '@babel/types';
+import Swal from 'sweetalert2';
 
 
 
@@ -32,7 +33,7 @@ class MessageFeed extends Component {
 
     handleSubmit = (event) => {
         console.log('clicked submit');
-        alert('Thanks for sharing your thoughts!');
+        Swal.fire('Thanks for sharing your thoughts!');
         this.props.dispatch({type: 'ADD_MESSAGE', payload: this.state})
         this.setState({
             ...this.state,
@@ -53,7 +54,8 @@ class MessageFeed extends Component {
         console.log(message)
         this.props.dispatch({
             type: 'DELETE_COMMENT_ADMIN',
-            payload: message.message_id
+            payload1: message.message_id,
+            payload2: this.state.bar_id
         })
     }
       
@@ -77,10 +79,9 @@ class MessageFeed extends Component {
                     
                      {this.props.reduxStore.setBarMessages.map(message => {
                     return <div key={message.message} className="message-content">
-                    <p>{message.users_name} was at {message.name} on {moment(message.date).format('LLL')} and said:</p>
+                    <p><b>{message.users_name}</b> was at <b>{message.name}</b> on {moment(message.date).format('LLL')} and said:</p>
                     <p>{message.message}</p> <button onClick={() => this.handleFlagButton(message)}>Report this comment</button>
                     <button onClick={() => this.handleDeleteButton(message)}>Delete Comment</button>
-                    <p>---------------------</p>
                     </div> 
                      })}    
                 </div>
@@ -106,9 +107,8 @@ class MessageFeed extends Component {
                     
                      {this.props.reduxStore.setBarMessages.map(message => {
                     return <div key={message.message} className="message-content">
-                    <p>{message.users_name} was at {message.name} on {moment(message.date).format('LLL')} and said:</p>
-                    <p>{message.message}</p> <button onClick={() => this.handleFlagButton(message)}>Report this comment</button> 
-                    <p>---------------------</p>
+                    <p><b>{message.users_name}</b> was at <b>{message.name}</b> on {moment(message.date).format('LLL')} and said:</p>
+                    <p>{message.message}</p> <button onClick={() => this.handleFlagButton(message)}>Report this comment</button>
                     </div> 
                      })}    
                 </div>

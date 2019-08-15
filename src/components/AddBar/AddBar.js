@@ -57,15 +57,15 @@ class AddBar extends Component {
                 <input required placeholder="Bar Name"
                     value={this.state.bar_name}
                     onChange={(event) => this.handleChangeFor('bar_name', event)} />
-
+                <br/>
                 <input required placeholder="Address, City"
                     value={this.state.street_address}
                     onChange={(event) => this.handleChangeFor('street_address', event)} />
-
+                <br/>
                 <input required placeholder="Phone"
                     value={this.state.phone}
                     onChange={(event) => this.handleChangeFor('phone', event)} />
-
+                <br/>
                 <textarea rows="4" cols="40" required placeholder="Hamm's Information"
                     value={this.state.notes}
                     onChange={(event) => this.handleChangeFor('notes', event)} maxLength="200" />

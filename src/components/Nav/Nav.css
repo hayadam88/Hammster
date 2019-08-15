@@ -3,6 +3,11 @@
     color: red;
 }
 
+#hammster-logo {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .nav-master {
   background-color: #fde67f;
   position: fixed;
@@ -12,6 +17,9 @@
   text-align: center;
 }
 
+.hammster-face-logo {
+  padding-top: 10px;
+}
 
 .nav-link-master {
   color: #f2f2f2;
