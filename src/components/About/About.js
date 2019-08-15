@@ -4,11 +4,10 @@ import './About.css';
 
 
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
+
 const About = (props) => (
     <>
+        {/* These breaks are necessary for styling reasons */}
         <br/>
         <br/>
         <br/>
@@ -28,7 +27,7 @@ const About = (props) => (
                 Navigate to the bars page to find a bar near you!
             </p>
             <img src = "https://www.millercoors.com/sites/millercoors/files/inline-images/avCan.png" alt="Hamm's Pic" id="about-pic"></img>
-            
+            {/* Like above, these breaks are necessary for styling. */}
             <br/>
             <br/>
             <br/>
@@ -39,9 +38,7 @@ const About = (props) => (
 
 );
 
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
+
 const mapStateToProps = state => ({
   user: state.user,
 });

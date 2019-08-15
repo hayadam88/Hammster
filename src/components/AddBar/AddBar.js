@@ -4,6 +4,8 @@ import Swal from 'sweetalert2'
 
 class AddBar extends Component {
 
+    // The state is the payload being sent along on the POST route. Approved is set to false by default
+    // so it will send the bar to the admin page for approval instead of being added to the app.
     state = {
         
             bar_name: '',
@@ -14,6 +16,7 @@ class AddBar extends Component {
 
     }
 
+    // This method sets our state through the form below
     handleChangeFor = (propertyName, event) => {
         this.setState({
             
@@ -23,14 +26,18 @@ class AddBar extends Component {
         })
     }
 
+    // When the submit button is clicked, the following actions happen
     handleSubmit = (event) => {
+        // The swal.fire is a special type of alert that looks cool
         Swal.fire('Thank you for suggesting a bar to Hammster!')
         event.preventDefault();
         console.log(`Adding bar`, this.state);
+        // Calls the saga with the action of ADD_BAR, and sends it our state
         this.props.dispatch({
             type: `ADD_BAR`,
             payload: this.state
         })
+        // This sets our input fields to be empty again
         this.setState({
             bar_name: '',
             street_address: '',
@@ -44,6 +51,7 @@ class AddBar extends Component {
     render() {
         return (
             <>
+            {/* These breaks are necessary for styling */}
             <br/>
             <br/>
             <br/>
@@ -52,6 +60,7 @@ class AddBar extends Component {
             <p id="add-bar-text">The continued growth and viability of Hammster depends on users like you. Find a bar that
                 serves Hamm's on tap, but it's not on the app? Submit its information below, and if it looks good, we'll
                 add it to the app!</p>
+            {/* This is our form where the users enter a bar they want to be added to the app */}
             <div className="add-bar-form">
                 <form onSubmit={this.handleSubmit}>
 
@@ -77,7 +86,7 @@ class AddBar extends Component {
 
             </form>
             </div>
-            
+            {/* These breaks are necessary for styling. */}
             <br/>
             <br/>
             <br/>
