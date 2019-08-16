@@ -1,8 +1,17 @@
+#bar-name-input {
+    width: 100%;
+}
+
+#address-input {
+    width: 100%;
+}
+
+#phone-input {
+    width: 100%;
+}
 
 body {
 background-image: url(/images/HammsterBackgroundTextBigger.png);
-/* background-image: url(https://i.ibb.co/ZYgKH8P/Hammster-Face-Transparent.png); */
-/* background-size: stretch; */
 background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -54,7 +63,7 @@ body {
 
 form {
     background-color: #dbd5d5;
-    width: 30%;
+    width: 20%;
     height: 250px;
     margin: 20px auto;
     padding-top: 20px;
@@ -98,13 +107,17 @@ input {
     cursor: pointer;
 }
 
-#admin-messages td {
+#admin-messages-table td {
     border: 1px solid black;
     background-color: white;
 }
 
 #admin-content {
     text-align: center;
+}
+
+#suggested-bars-table tr {
+margin-bottom: 25px;
 }
 
 #suggested-bars-table td {
@@ -116,12 +129,45 @@ input {
     text-align: center;
 }
 
+.approve-button {
+    background-color: rgba(0, 128, 0, 0.63);
+    color: white;
+}
+
+.deny-button {
+    background-color: rgba(255, 0, 0, 0.575);
+    color: white;
+}
+
 .suggested-bars-div {
     padding-left: 20px;
     padding-right: 20px;
+    /* border: ridge;
+    background-color: rgba(206, 197, 197, 0.493) */
+}
+
+.message-unflag-button {
+    background-color: rgba(0, 128, 0, 0.63);
+    color: white;
+
+}
+
+.message-delete-button {
+    background-color: rgba(255, 0, 0, 0.616);
+    color: white;
 }
 
 .message-feed-div {
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.admin-message-div {
+    /* border: ridge;
+    background-color: rgba(206, 197, 197, 0.493); */
+    margin-top: 15px;
+}
+
+#admin-messages-table tr {
+    margin-bottom: 25px;
 }

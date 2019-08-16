@@ -78,7 +78,7 @@ class Admin extends Component {
                     </h1>
                 </div>
                 <div className="suggested-bars-div">
-                    <h1>------Suggested Bars------</h1>
+                    <h1>Suggested Bars</h1>
                 <table align="center" id="suggested-bars-table">
                     <tbody>
                     <tr>
@@ -86,8 +86,6 @@ class Admin extends Component {
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Notes</th>
-                        <th></th>
-                        <th></th>
                     {/* Now we want to map through our unapprovedBars redux store. These are all the bars that users
                     have submitted through the add bar page. A bar added via that page needs to be either approved or
                     denied by an admin. */}
@@ -100,8 +98,8 @@ class Admin extends Component {
                         <td>{bar.notes}</td>
                         {/* Pass the information of whatever bar we click on to our click handlers. This way we have something
                         to reference in our PUT and DELETE. */}
-                        <td><button onClick={() => this.handleBarApprove(bar)}>Approve</button></td>
-                        <td><button onClick={() => this.handleBarDeny(bar)}>Deny</button></td>
+                        <button onClick={() => this.handleBarApprove(bar)} className="approve-button">APPROVE</button>
+                        <button onClick={() => this.handleBarDeny(bar)} className="deny-button">DENY</button>
                     </tr>
                     })
                     }
@@ -109,9 +107,9 @@ class Admin extends Component {
                 </table>
                 <br/>
                 </div>
-                <div id="messages-feed-div">
-                    <h1>--------Flagged Messages--------</h1>
-                    <table id="admin-messages" align="center">
+                <div className="admin-message-div">
+                    <h1>Flagged Messages</h1>
+                    <table id="admin-messages-table" align="center">
                         <tbody>
                             <tr>
                                 <th>User Name</th>
@@ -126,20 +124,21 @@ class Admin extends Component {
                                 <td>{message.users_name}</td>
                                 <td>{message.name}</td>
                                 <td>{message.message}</td>
-                                <td><button onClick={() => this.handleMessageDelete(message)}>Delete</button></td>
-                                <td><button onClick={() => this.handleCancelMessage(message)}>Unflag</button></td>
+                                <button onClick={() => this.handleMessageDelete(message)} className="message-delete-button">DELETE</button>
+                                <button onClick={() => this.handleCancelMessage(message)} className="message-unflag-button">UNFLAG</button>
                             </tr>
                             })
                             }
                     </tbody>                    
                 </table>
+                </div>
                 {/* These breaks are necessary for styling reasons. */}
                 <br/>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
-                </div>
+                
             </div>
             </>
          )} // end if user.id = 8 render

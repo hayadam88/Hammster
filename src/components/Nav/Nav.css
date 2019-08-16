@@ -6,6 +6,7 @@
 #hammster-logo {
   padding-left: 20px;
   padding-right: 20px;
+  /* width: 100% */
 }
 
 .nav-master {
@@ -28,6 +29,7 @@
   padding: 5px 5px;
   text-decoration: none;
   font-size: 15px;
+ 
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -39,4 +41,5 @@
 .nav-link-master:hover {
   background-color: #302df0;
 }
+
 

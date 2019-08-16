@@ -5,10 +5,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 
 const Nav = (props) => (
+
   <div className="nav-master">
-      <img src="images/HammsterFaceTiny.png" alt="face goes here" className="hammster-face-logo"></img>
-      <img src="images/HammserTextLogoResizeTwo.png" alt="Logo goes here" id="hammster-logo"></img>
-      <img src="images/HammsterFaceTiny.png" alt="face goes here" className="hammster-face-logo"></img>
+      
+      <img src="images/HammsterBetterLogo.png" alt="Logo goes here" id="hammster-logo"></img>
+      
       
       <div className="nav-right-master">
       <Link className="nav-link-master" to="/home">
@@ -36,6 +37,7 @@ const Nav = (props) => (
       <LogOutButton className="nav-link-master"/>
     </div>
   </div>
+
 );
 
 // Instead of taking everything from state, we just want the user
