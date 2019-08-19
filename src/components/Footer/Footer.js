@@ -6,7 +6,7 @@ import './Footer.css'
 const Footer = () => (
   <footer>
     <div className="footer-text">
-    &copy; Adam Hay
+    &copy; Hammster (2019)
     </div>
   </footer>
 );
