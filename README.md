@@ -7,5 +7,10 @@ Please note that it may take a minute or so for the app to load.
 
 ![Screen Capture](public/images/AppScreenshot.png)
 
-#Features
-
+## Features 
+- [x] Display list of known bars
+- [x] Each bar has its own message board
+- [x] Add bar to app
+- [x] Message flagging
+- [x] Administrator can approve or deny bars
+- [x] Administrator can delete posts
