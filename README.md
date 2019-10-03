@@ -5,5 +5,7 @@ Hi there! Thanks for checking out Hammster. This is an app I developed for my so
 View the app here: https://agile-woodland-46778.herokuapp.com
 Please note that it may take a minute or so for the app to load.
 
+![Screen Capture](public/images/AppScreenshot.png)
+
 #Features
 
